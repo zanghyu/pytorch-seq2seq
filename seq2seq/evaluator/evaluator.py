@@ -45,7 +45,7 @@ class Evaluator(object):
 
         with torch.no_grad():
             for batch in batch_iterator:
-                input_variables, input_lengths  = getattr(batch, seq2seq.src_field_name)
+                input_variables  = getattr(batch, seq2seq.src_field_name)
                 target_variables = getattr(batch, seq2seq.tgt_field_name)
 
                 decoder_outputs, decoder_hidden, other = model(input_variables, input_lengths.tolist(), target_variables)
